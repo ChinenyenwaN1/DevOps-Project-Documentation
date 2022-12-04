@@ -217,6 +217,7 @@ CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWor
 ![image](https://user-images.githubusercontent.com/116161693/205498139-3c5449ef-51dc-4376-b999-4fbbc53ca371.png)
 
 Next, give this user permission over the example_database database: 
+
 ```
 GRANT ALL ON example_database. * TO 'example_user'@'%';*
 ```
@@ -230,7 +231,9 @@ mysql -u example_user -p
 
 ![image](https://user-images.githubusercontent.com/116161693/205498192-69f9d21b-18ba-4476-8ba1-66c41e2ea8cc.png)
 
-After logging in to the MySQL console, confirm that you have access to the example_database database: ```
+After logging in to the MySQL console, confirm that you have access to the example_database database:
+
+```
 SHOW DATABASES; 
 ```
 
@@ -248,6 +251,7 @@ PRIMARY KEY(item_id)
 ![image](https://user-images.githubusercontent.com/116161693/205498232-2f3a9e20-8ec7-4fb6-b0e2-37276edf5601.png)
 
 Insert a few rows of content in the test table. Repeat the next command a few times, using different VALUES: 
+
 ```
 INSERT INTO example_database.todo_list (content) VALUES ("Shop");
 ```
