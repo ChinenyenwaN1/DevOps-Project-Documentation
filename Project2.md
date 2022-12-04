@@ -210,7 +210,9 @@ CREATE DATABASE example_database;
 
 ![image](https://user-images.githubusercontent.com/116161693/205498099-01a538be-a1a0-4041-8fe6-f7f9885a392c.png)
 
-Next, create a new user and grant him full privileges on the database. The following command creates a new user named example_user, using mysql_native_password as default authentication method. Run: ```
+Next, create a new user and grant him full privileges on the database. The following command creates a new user named example_user, using mysql_native_password as default authentication method. Run: 
+
+```
 CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'PassWord1@'; 
 ```
 
@@ -227,7 +229,9 @@ GRANT ALL ON example_database. * TO 'example_user'@'%';*
 This will give the example_user user full privileges over the example_database database, while preventing this user from creating or modifying other databases on your server.
 Exit the console: exit
 Now test if the new user has the proper permissions by logging in to the MySQL console again, this time using the custom user credentials: 
+```
 mysql -u example_user -p 
+```
 
 ![image](https://user-images.githubusercontent.com/116161693/205498192-69f9d21b-18ba-4476-8ba1-66c41e2ea8cc.png)
 
@@ -240,6 +244,7 @@ SHOW DATABASES;
 ![image](https://user-images.githubusercontent.com/116161693/205498209-45b1892e-f54f-480c-9aaf-8ccc92a73e0a.png)
 
 Next, we’ll create a test table named todo_list. From the MySQL console, run the following statement:
+
 ```
 CREATE TABLE example_database.todo_list (
 item_id INT AUTO_INCREMENT ,
@@ -258,6 +263,7 @@ INSERT INTO example_database.todo_list (content) VALUES ("Shop");
 ![image](https://user-images.githubusercontent.com/116161693/205498307-d2030713-e57c-4c99-8fb5-a920aed9f061.png)
  
 To confirm that the data was successfully saved to your table, run: 
+
 ```
 SELECT * FROM example_database.todo_list; 
 ```
