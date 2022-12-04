@@ -92,10 +92,8 @@ or
 ```
 curl [http://127.0.0.1:80](http://127.0.0.1/) 
 ```
-
 As an output you can see some strangely formatted test, do not worry, we just made sure that our Apache web service responds to ‘curl’ command with some payload.
 Now it is time for us to test how our Apache HTTP server can respond to requests from the Internet. Open a web browser of your choice and try to access following url
-
 http://<Public-ip-address>:80	
 
 Another way to retrieve your Public IP address, other than to check it in AWS Web Console, is to use the following command.
@@ -103,8 +101,7 @@ Another way to retrieve your Public IP address, other than to check it in AWS We
 ```
 curl -s http://169.254.169.254/latest/meta-data/public-ipv4
 ```
-
-Congratulations! Our web server is correctly installed and accessible through our firewall. 
+**Congratulations!** Our web server is correctly installed and accessible through our firewall. 
 ![image](https://user-images.githubusercontent.com/116161693/203493534-dbeffddf-8f23-4ee5-954a-cee8bd8811a2.png)
 
 ## STEP 2 - Installing MySQL on the Virtual environment
@@ -118,22 +115,23 @@ Confirm installation by typing Y when prompted.
 ![image](https://user-images.githubusercontent.com/116161693/203494349-a21e516e-dc33-49e1-a324-fa0cefd2daba.png)
 
 Once installation is complete, log in to the MySQL console by running: 
-'''
+```
 sudo mysql
-'''
+```
 
 ![image](https://user-images.githubusercontent.com/116161693/203494378-cb4e46f7-6ff5-495f-9fec-4a78d29173e9.png)
  
 Next, run a security script that comes pre-installed with MySQL, to remove some insecure default settings and lock down access to your database system. run: 
-'''
+
+```
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1'
-'''
+```
 then exit MySQL shell by typing exit and enter.
 ![image](https://user-images.githubusercontent.com/116161693/203494516-68dc24cf-1351-4a04-9981-a1c91e528f06.png)
 
-'''
+```
 sudo mysql_secure_installation**
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203494566-af9e83e8-0efa-4067-a035-c65c6cfb6ea1.png)
 
 This will ask if you want to configure the VALIDATE PASSWORD PLUGIN.
@@ -150,9 +148,9 @@ If we enable password validation, we’ll be shown the password strength for the
 For the rest of the questions, We press Y and hit the ENTER key at each prompt. This will remove some anonymous users and the test database, disable remote root logins, and load these new rules so that MySQL immediately respects the changes we have made.
 Next, test that login to MySQL console works. Run: 
 
-'''
+```
 sudo mysql -p
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203494818-cf35dc14-68c7-44d3-9725-b1c9e3b67653.png)
 
 when you are done, you will get this output:
@@ -164,15 +162,16 @@ Next, we will install PHP, the last component in the LAMP Stack.
 
 We have Apache installed to serve our content and MySQL installed to store and manage our data. PHP is the component of our setup that will process code to display dynamic content to the final user. In addition to the PHP package, we’ll need php-mysql, a PHP module that allows PHP to communicate with MySQL-based databases. We’ll also need libapache2-mod-php to enable Apache to handle PHP files. Core PHP packages will automatically be installed as dependencies.
 To install these 3 packages at once, run: 
-'''
+
+```
 sudo apt install php libapache2-mod-php php-mysql
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203498458-908c2a5b-257a-4725-a9e5-866193e274fa.png) 
 Once the installation is finished, you can run the below command to confirm your PHP version:
 
-'''
+```
 php -v
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203498519-8fd565a7-5c51-44ff-8ab2-eff35f9a759b.png) 
 At this point, your LAMP stack is completely installed and fully operational.
 To test our setup with a PHP Script, it's best to setup a proper Apache Virtual Host to host our website's file and folders. Virtual Host allows you to have multiple websites located on a single machine and users of the websites will not even notice it.
@@ -181,26 +180,27 @@ To test our setup with a PHP Script, it's best to setup a proper Apache Virtual 
 In this project, you will set up a domain called projectlamp, but you can replace this with any domain of your choice.
 •	Setting up a domain called projectlamp. Create the directory for projectlamp using ‘mkdir’. Run: 
 
-'''
+```
 sudo mkdir /var/www/projectlamp
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203500062-211c1b32-28e6-47d2-bb52-7bd638ca150b.png)
 •	assign ownership of the directory with your current system user, run: 
 
-'''
+```
 sudo chown -R $USER:$USER /var/www/projectlamp
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203500482-0f598ab7-d113-4d9f-a5d0-e7197910631b.png)
 
 •	Next, create and open a new configuration file in Apache’s sites-available directory. run: 
 
-'''
+```
 sudo vi /etc/apache2/sites-available/projectlamp.conf
-'''
+```
 •	This will create a new blank file. Paste in the following bare-bones configuration by hitting on i on the keyboard to enter the insert mode, and paste the text: 
-'''
+
+```
 <VirtualHost :80> ServerName projectlamp ServerAlias [www.projectlamp](http://www.projectlamp/) ServerAdmin webmaster@localhost DocumentRoot /var/www/projectlamp ErrorLog ${APACHE_LOG_DIR}/error.log CustomLog ${APACHE_LOG_DIR}/access.log combined
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203500627-515a47f7-1451-4707-b22e-b05cd1d4a505.png) 
 To save and close the file, simply follow the steps below:
 •	Hit the esc button on the keyboard
@@ -209,43 +209,44 @@ To save and close the file, simply follow the steps below:
 •	Hit ENTER to save the file 
 ![image](https://user-images.githubusercontent.com/116161693/203501228-1120b2bc-07ee-4550-b470-38bf26985f92.png)
 You can use the ls command to show the new file in the sites-available directory
-'''
+
+```
 sudo ls /etc/apache2/sites-available
-'''
+```
 •	this is my output  
 ![image](https://user-images.githubusercontent.com/116161693/203501257-ce5b39c1-3b97-4438-a447-8c86989ee9bd.png)
 
 You can now use a2ensite command to enable the new virtual host:
 
-'''
+```
 sudo a2ensite projectlamp
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203501673-2635cf70-e377-42f8-a7c3-8038bc1e5d05.png)
 
 •	We might want to disable the default website that comes installed with Apache. This is required if we are not using a custom domain name, because in this case Apache’s default configuration would overwrite our virtual host. To disable Apache’sdefault website use a2dissite command, type:
 
-'''
+```
 sudo a2dissite 000-default
-'''
+```
 ![image](https://user-images.githubusercontent.com/116161693/203501707-c1bff5a6-68f4-4d7d-8b7d-da8e68434608.png)
 
 •	To make sure your configuration file doesn't contain syntax errors, run :
 
-'''
+```
 sudo apache2ctl configtest
-'''
+```
 
 ![image](https://user-images.githubusercontent.com/116161693/203501745-e8838540-76c2-49f3-9b35-380003fe6052.png)
 •	Finally, reload Apache so these changes take effect:
 
-'''
+```
 sudo systemctl reload apache2
-'''
+```
 Your new website is now active, but the web root /var/www/projectlamp is still empty. Create an index.html file in that location so that we can test that the virtual host works as expected:
 •	Type and run :
-'''
+```
 sudo vi /var/www/projectlamp/index.html
-'''
+```
 see my input : 
 ![image](https://user-images.githubusercontent.com/116161693/203502083-e2b8a015-dae7-499e-8699-0688ac50377a.png)
 
@@ -261,48 +262,48 @@ $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
 ## Step 5 — Enable PHP on the website
 With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file. To make index.php file tak precedence need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive.
 
-'''
+```
 sudo vim /etc/apache2/mods-enabled/dir.conf
-'''
+```
 
 ![image](https://user-images.githubusercontent.com/116161693/203516928-89a46f3b-6b8f-40f7-8c5c-1a7cd7af9bee.png) 
 Type esc key :%d and hit enter button to clear the previous html and paste the below
 
-'''
+```
 sudo vim /etc/apache2/mods-enabled/dir.conf then: #Change this: #DirectoryIndex index.html index.cgi index.pl index.php index.xhtml index.htm #To this: DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
-'''
+```
 
  After saving and closing the file, you will need to reload Apache so the changes can  take effect:
 
-'''
+```
 sudo systemctl reload apache2
-'''
+```
 
 Finally, we will create a PHP Script to test the PHP is correctly installed and configured on our Server.
 Now that we have a custom location to host our website's files and folders, we'll create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.
 Create a new file named index.php inside our custom web root folder:
 
-'''
-vim /var/www/projectlamp/index.php**
-'''
+```
+vim /var/www/projectlamp/index.php
+```
 
 This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
-'''
+```
 <?php
 phpinfo();
-'''
+```
 
 ![image](https://user-images.githubusercontent.com/116161693/203517145-0321dd56-1a96-46a9-9cf8-0db1a56b07bf.png) 
 
-When you have finished, save and close the file, refresh the page and you will see a page similar to this : 
+When you have finished, save and close the file, refresh the page and you will see a page similar to this: 
 
 ![image](https://user-images.githubusercontent.com/116161693/203504935-10a4a696-908e-4292-ae04-bf758606575c.png)
 
-**CONGRATULATIONS! You did it YAY………..!**
+### CONGRATULATIONS! You did it YAY………..!
 This page provides information about your server from the perspective of PHP. It is useful for debugging and to ensure that your settings are being applied correctly. If you can see this page in your browser, then your PHP installation is working as expected.
 After checking the relevant information about your PHP server through that page, it’s best to remove the file you created as it contains sensitive information about your PHP environment -and your Ubuntu server. You can use rm to do so by running:
 
-'''
+```
 sudo rm /var/www/projectlamp/index.php
-'''
+```
