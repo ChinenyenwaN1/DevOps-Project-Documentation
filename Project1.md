@@ -14,22 +14,22 @@ For today’s project we will be focusing on LAMP STACK implementation in AWS
 3. **MySQL**  - the relational database management system
 3. **PHP**      -  the programming language (it can also be Perl or Python).
 
-1. To complete this project, you will need an [AWS account](https://aws.amazon.com/) in order to create a virtual environment. Create an IAM user which is the recommended practice for your daily use of resources and sign in as an IAM user.
+To complete this project, you will need an [AWS account](https://aws.amazon.com/) in order to create a virtual environment. Create an IAM user which is the recommended practice for your daily use of resources and sign in as an IAM user.
 ![image](https://user-images.githubusercontent.com/116161693/203518500-52944cd2-0c66-49c5-8544-ca7f39d7a2c0.png)
 
-2. Before proceeding with the creation of an EC2 instance, consider Cost, Latency and proximity, Security and regulatory compliance and Service Level Agreements (SLA) to select your desired region. AWS Region is at the top right hand close to your account ID
+Before proceeding with the creation of an EC2 instance, consider Cost, Latency and proximity, Security and regulatory compliance and Service Level Agreements (SLA) to select your desired region. AWS Region is at the top right hand close to your account ID
 ![image](https://user-images.githubusercontent.com/116161693/203466803-2c433c6d-19a3-470c-9a7a-a45f688f6a1f.png)
 
-3. To spin up a virtual server click on "Services" at the upper left corner and you will see all the Services available on AWS. Click on "EC2"  
+To spin up a virtual server click on "Services" at the upper left corner and you will see all the Services available on AWS. Click on "EC2"  
 ![image](https://user-images.githubusercontent.com/116161693/203466841-00ba6fba-6e5a-4270-bad8-1365c4ed1f94.png)
 
-4. Next, click on "Launch Instances".
+Next, click on "Launch Instances".
 Now we are going to configure our EC2 instance! Select the Ubuntu Server 22.04 LTS (HVM) as the Amazon Machine Image (AMI).  
 ![image](https://user-images.githubusercontent.com/116161693/203466891-d5342bec-2f2b-4a90-9a1a-09a6c449b7dc.png)
 
-3. Then, select "t2.micro" as the instance type.  
+Then, select "t2.micro" as the instance type.  
 
-4. Next, create a keypair which is required for SSH access to the Server.
+Next, create a keypair which is required for SSH access to the Server.
 
 **IMPORTANT** - save your private key (.pem file) securely and do not share it with anyone! If you lose it, you will not be able to connect to your server ever again! 
 ![image](https://user-images.githubusercontent.com/116161693/203466937-28970af4-cb0d-4d7a-af9a-32c4cc48840e.png) 
@@ -37,11 +37,13 @@ Now we are going to configure our EC2 instance! Select the Ubuntu Server 22.04 L
 **Good job!** You have successfully launched an EC2 instance! You can view your new instance by clicking the "View Instances" button at the bottom-right of your screen. this may take minutes to initialize and pass a status check. 
 ![image](https://user-images.githubusercontent.com/116161693/203467133-378d2605-3926-4dc5-a9ec-ff9ae31ed853.png)
 
-5. Now let's connect to our instance! 
+Now let's connect to our instance! 
 ![image](https://user-images.githubusercontent.com/116161693/203492058-8373b47d-ba4c-4984-9607-05e1a3767700.png)
-6. The next phase is to view your instance state, click on your instance to view it. At this stage, you will see if your instance is running or still pending. mine is running and status check has passed, now i can view my instance details.
+
+The next phase is to view your instance state, click on your instance to view it. At this stage, you will see if your instance is running or still pending. mine is running and status check has passed, now i can view my instance details.
 ![image](https://user-images.githubusercontent.com/116161693/203492102-e40cb0da-bb6f-4ebb-a144-694dd2fa5161.png)
-7. In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:
+
+In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:
 
 ## STEP 1 - Installing Apache and Updating the Firewall**
 #### Using Mobaxterm
@@ -52,7 +54,7 @@ Now, we are going to use that PEM key to connect to our EC2 Instance via ssh usi
 
 ![image](https://user-images.githubusercontent.com/116161693/203492293-47a4c83b-14f8-4f96-85af-c23673351adb.png)
 
-8. We need to Install Apache using Ubuntu’s package manager, apt:
+We need to Install Apache using Ubuntu’s package manager, apt:
 Run the below command to update a list of packages in package manager
 
 ```
@@ -65,7 +67,7 @@ run apache2 package installation command below
 sudo apt install apache2
 ```
 ![image](https://user-images.githubusercontent.com/116161693/203493295-4f49f0ce-8d00-4c6c-a967-a8e81bdefd8d.png)
-9. To verify that apache2 is running as a Service in our OS, use the below command
+To verify that apache2 is running as a Service in our OS, use the below command
 
 ```
 sudo systemctl status apache2** 
@@ -74,10 +76,11 @@ sudo systemctl status apache2**
 
 If it is green and running, then you did everything correctly – you have just launched your first Web Server in the Cloud! Congrats!
 
-10. Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browser uses to access web pages on the Internet. As we know, we have TCP port 22 open by default on our EC2 machine to access it via SSH, so we need to add a rule to EC2 configuration to open inbound connection through port 80:
+Before we can receive any traffic by our Web Server, we need to open TCP port 80 which is the default port that web browser uses to access web pages on the Internet. As we know, we have TCP port 22 open by default on our EC2 machine to access it via SSH, so we need to add a rule to EC2 configuration to open inbound connection through port 80:
 Our server is running and we can access it locally and from the Internet (Source 0.0.0.0/0 means ‘from any IP address’). 
 ![image](https://user-images.githubusercontent.com/116161693/203493367-0173e496-fc7f-452a-b39f-3c8b8c23b8bd.png) 
-11. Next, click on "Edit Inbound Rules", as highlighted in the image below:
+
+Next, click on "Edit Inbound Rules", as highlighted in the image below:
  
 ![image](https://user-images.githubusercontent.com/116161693/203493397-047ae933-10f4-4c99-8958-1c32e6095c31.png)
 ![image](https://user-images.githubusercontent.com/116161693/203493451-b0b3d0d3-6964-4835-a09d-49d3890a8eaa.png) 
@@ -255,12 +258,16 @@ http://<public-ip-address>:80
 or you can also browse using your public DNS. the result is the same
 http://<Public-DNS-Name>:80
 And this is my output : 
+
 ![image](https://user-images.githubusercontent.com/116161693/205486284-a73093a2-4873-4013-b1b6-c20eec9e716c.png)
 
 To check your Public IP from the Ubuntu shell, run :
-$(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 
-$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
-
+```
+(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 
+```
+```
+(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
+```
 ## Step 5 — Enable PHP on the website
 With the default DirectoryIndex settings on Apache, a file named index.html will always take precedence over an index.php file. To make index.php file tak precedence need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order in which the index.php file is listed within the DirectoryIndex directive.
 
@@ -284,18 +291,15 @@ sudo systemctl reload apache2
 Finally, we will create a PHP Script to test the PHP is correctly installed and configured on our Server.
 Now that we have a custom location to host our website's files and folders, we'll create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.
 Create a new file named index.php inside our custom web root folder:
-
 ```
 vim /var/www/projectlamp/index.php
 ```
-
 This will open a blank file. Add the following text, which is valid PHP code, inside the file:
 
 ```
 <?php
 phpinfo();
 ```
-
 ![image](https://user-images.githubusercontent.com/116161693/203517145-0321dd56-1a96-46a9-9cf8-0db1a56b07bf.png) 
 
 When you have finished, save and close the file, refresh the page and you will see a page similar to this: 
