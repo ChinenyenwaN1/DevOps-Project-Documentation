@@ -255,6 +255,8 @@ http://<public-ip-address>:80
 or you can also browse using your public DNS. the result is the same
 http://<Public-DNS-Name>:80
 And this is my output : 
+![image](https://user-images.githubusercontent.com/116161693/205486284-a73093a2-4873-4013-b1b6-c20eec9e716c.png)
+
 To check your Public IP from the Ubuntu shell, run :
 $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 
 $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
