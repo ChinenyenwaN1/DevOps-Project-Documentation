@@ -63,6 +63,7 @@ sudo apt update
 run apache2 package installation command below
 
 '''
+
 sudo apt install apache2
 '''
  
@@ -71,7 +72,6 @@ sudo apt install apache2
 
 '''
 sudo systemctl status apache2** 
-
 '''
 ![image](https://user-images.githubusercontent.com/116161693/203493318-5b1b3694-cdc7-497a-8e77-6c055ac74882.png)
 
@@ -108,7 +108,6 @@ Another way to retrieve your Public IP address, other than to check it in AWS We
 
 '''
 curl -s http://169.254.169.254/latest/meta-data/public-ipv4
-
 '''
 
 Congratulations! Our web server is correctly installed and accessible through our firewall. 
