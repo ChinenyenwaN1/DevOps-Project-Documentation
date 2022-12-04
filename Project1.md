@@ -1,10 +1,10 @@
 # WEB STACK IMPLEMENTATION (LAMP) IN AWS
 A technology stack is a set of frameworks and tools used to develop a software product. This set of frameworks and tools are very specifically chosen to work together in creating a well-functioning software. some examples are…
 
-1. LAMP (Linux, Apache, MySQL, PHP, Python, or Perl)
-2. LEMP (Linux, Nginx, MySQL, PHP or Python, or Perl)
-3. MERN (MongoDB, ExpressJS, ReactJS, NodeJS)
-4. MEAN (MongoDB, ExpressJS, AngularJS, NodeJS
+1. **LAMP** (Linux, Apache, MySQL, PHP, Python, or Perl)
+2. **LEMP** (Linux, Nginx, MySQL, PHP or Python, or Perl)
+3. **MERN** (MongoDB, ExpressJS, ReactJS, NodeJS)
+4. **MEAN** (MongoDB, ExpressJS, AngularJS, NodeJS
 
 For today’s project we will be focusing on LAMP STACK implementation in AWS
 **A LAMP stack** is a bundle of four different software technologies that developers use to build websites and web applications. it delivers the best cost efficiency, flexibility, and high-performance web applications. It is an acronym that stands for:
@@ -16,7 +16,6 @@ For today’s project we will be focusing on LAMP STACK implementation in AWS
 
 To complete this project, you will need an [AWS account](https://aws.amazon.com/) in order to create a virtual environment. Create an IAM user which is the recommended practice for your daily use of resources and sign in as an IAM user.
 ![image](https://user-images.githubusercontent.com/116161693/203518500-52944cd2-0c66-49c5-8544-ca7f39d7a2c0.png)
-
 Before proceeding with the creation of an EC2 instance, consider Cost, Latency and proximity, Security and regulatory compliance and Service Level Agreements (SLA) to select your desired region. AWS Region is at the top right hand close to your account ID
 ![image](https://user-images.githubusercontent.com/116161693/203466803-2c433c6d-19a3-470c-9a7a-a45f688f6a1f.png)
 
@@ -45,7 +44,7 @@ The next phase is to view your instance state, click on your instance to view it
 
 In this project, I will implement a web solution based on LAMP stack on a Linux server by implementing the steps below:
 
-## STEP 1 - Installing Apache and Updating the Firewall**
+## STEP 1 - Installing Apache and Updating the Firewall
 #### Using Mobaxterm
 Remember the private key you downloaded from AWS while provisioning the server? It is a PEM file format. 
 You can open it up to see the content and have a glimpse of what a PEM file looks like.
@@ -61,12 +60,14 @@ Run the below command to update a list of packages in package manager
 sudo apt update
 ```
 ![image](https://user-images.githubusercontent.com/116161693/203493251-ffd6392f-83d8-48e3-8756-9815b6d6807d.png) 
+
 run apache2 package installation command below
 
 ```
 sudo apt install apache2
 ```
 ![image](https://user-images.githubusercontent.com/116161693/203493295-4f49f0ce-8d00-4c6c-a967-a8e81bdefd8d.png)
+
 To verify that apache2 is running as a Service in our OS, use the below command
 
 ```
@@ -176,6 +177,7 @@ Once the installation is finished, you can run the below command to confirm your
 php -v
 ```
 ![image](https://user-images.githubusercontent.com/116161693/203498519-8fd565a7-5c51-44ff-8ab2-eff35f9a759b.png) 
+
 At this point, your LAMP stack is completely installed and fully operational.
 To test our setup with a PHP Script, it's best to setup a proper Apache Virtual Host to host our website's file and folders. Virtual Host allows you to have multiple websites located on a single machine and users of the websites will not even notice it.
  
