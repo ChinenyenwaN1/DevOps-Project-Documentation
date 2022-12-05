@@ -1,4 +1,4 @@
-# WEB STACK IMPLEMENTATION (LAMP) IN AWS
+# WEB STACK IMPLEMENTATION (LAMP) ON AWS
 A technology stack is a set of frameworks and tools used to develop a software product. This set of frameworks and tools are very specifically chosen to work together in creating a well-functioning software. some examples are…
 
 1. **LAMP** (Linux, Apache, MySQL, PHP, Python, or Perl)
@@ -6,7 +6,7 @@ A technology stack is a set of frameworks and tools used to develop a software p
 3. **MERN** (MongoDB, ExpressJS, ReactJS, NodeJS)
 4. **MEAN** (MongoDB, ExpressJS, AngularJS, NodeJS
 
-For today’s project we will be focusing on LAMP STACK implementation in AWS
+For today’s project we will be focusing on LAMP STACK implementation on AWS
 **A LAMP stack** is a bundle of four different software technologies that developers use to build websites and web applications. it delivers the best cost efficiency, flexibility, and high-performance web applications. It is an acronym that stands for:
 
 1. **Linux**     – the Operating System
