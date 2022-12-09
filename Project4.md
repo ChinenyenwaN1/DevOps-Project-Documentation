@@ -1,13 +1,16 @@
 # MEAN-STACK
-## What is Mean Stack
+
+## What is Mean stack?
+**Mean stack is a user-friendly full stack javascript framework which is highly preferable for creating dynamic websites and apps. It is free and open source stack developed to offer developers a fast and highly organized method for building a rapid prototype of mean stack development based web apps.
+The Mean stack is ideal for building all kinds of apps from dynamic single page apps to complex enterprise and social media apps. Mean stack is proposed to deliver a straightforward and initial point for cloud-native full-stack web apps. Mean stack development is a set of open source components that collectively offer a comprehensive framework for creating dynamic web apps.**
+
 **MEAN stands for:** 
 * MongoDB 
 * Express.js 
 * AngularJS 
-* Node.js. 
+* Node.js.
 
-**MEAN is an end-to-end JavaScript stack largely used for cloud-ready applications. MEAN is a full-stack development toolkit which is also refer to as a collection of JavaScript technologies used to develop web applications from the client to the server and from server to database, everything is based on JavaScript. It is also free and open-source stack which offers a quick and organized method for creating rapid prototypes for web-based applications.**
-
+Mean stack is ideal for building all kinds of apps because it works on only one language in the whole project, its efficiency and flexibility, an ideal choice for businesses, High reusability and speed, Cloud comparability, easy to learn and budget friendly for users.
 
 ## MEAN STACK is comprised of four different technologies:
 * **M**ongoDB (Document database): Stores and retrieve data.
@@ -15,6 +18,7 @@
 * **A**ngularJS (Front-end application framework): Handles Client and Server Requests
 * **N**ode.js (JavaScript runtime environment): Accept requests and display results to end user
 
+![image](https://user-images.githubusercontent.com/116161693/206679405-25d79aca-cec2-41ea-b700-c7b4146983a3.png)
 
 **There are variations to the MEAN stack such as MERN (replacing Angular.js with React.js) and MEVN (using Vue.js). The MEAN stack is one of the most popular technology concepts for building web applications.**
 
@@ -22,6 +26,8 @@
 
 ## MEAN Stack Architecture
 The MEAN architecture is designed to make building web applications in JavaScript and handling JSON incredibly easy.
+
+![image](https://user-images.githubusercontent.com/116161693/206679486-0ea2bde5-cde7-46e0-86de-ebc312cdc8bb.png)
 
 # MEAN Stack Components
 
@@ -46,6 +52,8 @@ AngularJS allows us to use HTML as a template language. Therefore, we can extend
 **Node.js** is an open source JavaScript framework that uses asynchronous events to process multiple connections simultaneously. It allows developers to create web servers and build web applications on it. It's a server-side Javascript execution environment and also an ideal framework for a cloud-based application, as it can effortlessly scale requests on demand.
 Node.js uses a non-blocking and event-driven I/O model. This makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. We’re likely to find Node.js behind most well-known web presences.
 
+![image](https://user-images.githubusercontent.com/116161693/206679564-5c166e99-9808-490b-8ba9-34fa35489124.png)
+
 # MEAN STACK USE CASES
 
 **While the MEAN stack isn’t perfect for every application, there are many uses where it excels. It’s a strong choice for developing cloud native applications because of its scalability and its ability to manage concurrent users. The AngularJS frontend framework also makes it ideal for developing single-page applications that serve all information and functionality on a single page. Here are a few examples for using MEAN:**
@@ -54,6 +62,8 @@ Node.js uses a non-blocking and event-driven I/O model. This makes it lightweigh
 * Expense tracking
 * News aggregation sites
 * Mapping and location finding
+
+![image](https://user-images.githubusercontent.com/116161693/206679627-a9ab213e-2aff-4478-818b-1f8179bc4f05.png)
 
 # In this Project we are going to deploy a web based application on our Linux server using MEAN STACK with the following steps.
 
