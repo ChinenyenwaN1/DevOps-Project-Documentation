@@ -18,7 +18,7 @@ Mean stack is ideal for building all kinds of apps because it works on only one 
 * **A**ngularJS (Front-end application framework): Handles Client and Server Requests
 * **N**ode.js (JavaScript runtime environment): Accept requests and display results to end user
 
-![image](https://user-images.githubusercontent.com/116161693/206679405-25d79aca-cec2-41ea-b700-c7b4146983a3.png)
+![image](https://user-images.githubusercontent.com/116161693/206688470-edd28389-3cb6-4ab4-827b-70b793bfd24b.png)
 
 **There are variations to the MEAN stack such as MERN (replacing Angular.js with React.js) and MEVN (using Vue.js). The MEAN stack is one of the most popular technology concepts for building web applications.**
 
