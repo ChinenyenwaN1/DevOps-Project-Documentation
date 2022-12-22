@@ -18,7 +18,7 @@ Mean stack is ideal for building all kinds of apps because it works on only one 
 * **A**ngularJS (Front-end application framework): Handles Client and Server Requests
 * **N**ode.js (JavaScript runtime environment): Accept requests and display results to end user
 
-![image](https://user-images.githubusercontent.com/116161693/206688470-edd28389-3cb6-4ab4-827b-70b793bfd24b.png)
+![image](https://user-images.githubusercontent.com/116161693/209232557-2f66f088-8ed6-4c23-867f-0d066d43792f.png)
 
 **There are variations to the MEAN stack such as MERN (replacing Angular.js with React.js) and MEVN (using Vue.js). The MEAN stack is one of the most popular technology concepts for building web applications.**
 
@@ -27,7 +27,7 @@ Mean stack is ideal for building all kinds of apps because it works on only one 
 ## MEAN Stack Architecture
 The MEAN architecture is designed to make building web applications in JavaScript and handling JSON incredibly easy.
 
-![image](https://user-images.githubusercontent.com/116161693/206679486-0ea2bde5-cde7-46e0-86de-ebc312cdc8bb.png)
+![image](https://user-images.githubusercontent.com/116161693/209230013-e4a42bac-1617-4ee4-a7af-44d219853e01.png)
 
 # MEAN Stack Components
 
@@ -52,8 +52,6 @@ AngularJS allows us to use HTML as a template language. Therefore, we can extend
 **Node.js** is an open source JavaScript framework that uses asynchronous events to process multiple connections simultaneously. It allows developers to create web servers and build web applications on it. It's a server-side Javascript execution environment and also an ideal framework for a cloud-based application, as it can effortlessly scale requests on demand.
 Node.js uses a non-blocking and event-driven I/O model. This makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices. We’re likely to find Node.js behind most well-known web presences.
 
-![image](https://user-images.githubusercontent.com/116161693/206679564-5c166e99-9808-490b-8ba9-34fa35489124.png)
-
 # MEAN STACK USE CASES
 
 **While the MEAN stack isn’t perfect for every application, there are many uses where it excels. It’s a strong choice for developing cloud native applications because of its scalability and its ability to manage concurrent users. The AngularJS frontend framework also makes it ideal for developing single-page applications that serve all information and functionality on a single page. Here are a few examples for using MEAN:**
@@ -63,16 +61,11 @@ Node.js uses a non-blocking and event-driven I/O model. This makes it lightweigh
 * News aggregation sites
 * Mapping and location finding
 
-![image](https://user-images.githubusercontent.com/116161693/206679627-a9ab213e-2aff-4478-818b-1f8179bc4f05.png)
+![image](https://user-images.githubusercontent.com/116161693/209232627-d1fa8f04-d2a7-48e2-b123-3253210becfa.png)
 
 # In this Project we are going to deploy a web based application on our Linux server using MEAN STACK with the following steps.
 
-# Step 0 – Preparing prerequisites
-
-In order to complete this project you will need an AWS account and a virtual server with Ubuntu Server OS.
-
-If you do not have an AWS account – go back to Project 1 Step 0 to sign in to AWS free tier account ans create a new EC2 Instance of t2.nano family with Ubuntu Server 20.04 LTS (HVM) image.
-
+if you have followed me on my first project on how to [implement LAMP](https://github.com/ChinenyenwaN1/DevOps-Project-Documentation/blob/main/LAMP-WEB%20STACK%20IMPLEMENTATION%20ON%20AWS.md/), you should be able to spin up a server and log into Mobaxterm app with your Keypair. 
 
 # Step1: Install NodeJs
 
@@ -88,18 +81,26 @@ Node.js is a JavaScript runtime built on Chrome’s V8 JavaScript engine. Node.j
 ```
 sudo apt update
 ```
+![image](https://user-images.githubusercontent.com/116161693/209230363-aa17dc23-230b-4c9c-9ae0-34cd457719c2.png)
 
 **Upgrade ubuntu**
 
 ```
 sudo apt upgrade
 ```
+**Lets get the location of Node.js software from Ubuntu repositories.**
+
+```
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+```
+![image](https://user-images.githubusercontent.com/116161693/209230415-b5c2a174-f4eb-4679-8118-317d3a074280.png)
 
 **Install NodeJS**
 
 ```
 sudo apt install -y nodejs
 ```
+![image](https://user-images.githubusercontent.com/116161693/209230492-4551ca3f-471f-4a70-8622-0cf4ebc68aa1.png)
 
 # Step 2: Install MongoDB
 
@@ -137,8 +138,7 @@ sudo service mongodb start
 ```
 sudo systemctl status mongodb
 ```
-
-**OUTPUT:
+![image](https://user-images.githubusercontent.com/116161693/209230911-1a6498fc-2da5-4264-8f30-a2f3483ed3be.png)
 
 Install [npm](https://www.npmjs.com) – Node package manager.
 
@@ -154,8 +154,7 @@ We need ‘body-parser’ package to help us process JSON files passed in reques
 sudo npm install body-parser
 ```
 
-**OUTPUT:**
-
+![image](https://user-images.githubusercontent.com/116161693/209230986-3c678d10-d5f1-4c3c-a8fc-46e4c660a5d2.png)
 
 **Create a folder named ‘Books’**
 
@@ -169,7 +168,7 @@ mkdir Books && cd Books
 npm init
 ```
 
-**OUTOUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231046-50d263b7-a035-4aa4-b097-424c23a8f5da.png)
 
 **Add a file to it named server.js**
 
@@ -180,7 +179,6 @@ touch server.js
 ```
 vi server.js
 ```
-
 **Copy and paste the web server code below into the server.js file.**
 
 ```
@@ -196,8 +194,9 @@ app.listen(app.get('port'), function() {
 });
 ```
 
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231134-c3d7a2a5-ca09-4dd2-bf5f-dd6f5ecad6f8.png)
 
+![image](https://user-images.githubusercontent.com/116161693/209231319-d2e3a60a-6337-4ea5-a4f7-eb2139d41405.png)
 
 # Step 3: Install Express and set up routes to the server
 
@@ -208,8 +207,7 @@ app.listen(app.get('port'), function() {
 ```
 sudo npm install express mongoose
 ```
-
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231411-628a113d-0d5f-4f77-9f32-746f3d0b2af5.png)
 
 **In ‘Books’ folder, create a folder named apps**
 
@@ -271,8 +269,7 @@ module.exports = function(app) {
 };
 ```
 
-
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231473-c90cb165-678f-47f8-86c3-16edb1fda2b0.png)
 
 
 **In the ‘apps’ folder, create a folder named models**
@@ -312,6 +309,8 @@ var bookSchema = mongoose.Schema( {
 var Book = mongoose.model('Book', bookSchema);
 module.exports = mongoose.model('Book', bookSchema);
 ```
+
+![image](https://user-images.githubusercontent.com/116161693/209231520-486b7738-aa0e-4217-b36f-108e4d826844.png)
 
 
 # Step 4: Access the routes with AngularJS
@@ -385,7 +384,7 @@ module.exports = function(app) {
 };
 ```
 
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231574-08c035eb-3cf4-4b75-b43a-80a4c0dd32a4.png)
 
 **In public folder, create a file named index.html;**
 
@@ -452,8 +451,9 @@ vi index.html
 </html>
 ```
 
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231599-096f6135-9fef-4dd0-84f0-90938feef1f6.png)
 
+![image](https://user-images.githubusercontent.com/116161693/209231765-b6d5f619-486d-4d1d-9531-a134596e0e70.png)
 
 **Change the directory back up to Books**
 
@@ -467,7 +467,7 @@ cd ..
 node server.js
 ```
 
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209231858-4a4dc18f-ff00-4388-86c6-d7903de653db.png)
 
 
 ## The server is now up and running, we can connect it via port 3300. You can launch a separate Putty or SSH console to test what curl command returns locally.
@@ -479,14 +479,9 @@ curl -s http://localhost:3300
 
 It shall return an HTML page, it is hardly readable in the CLI, but we can also try and access it from the Internet.
 
-For this – you need to open TCP port 3300 in your AWS Web Console for your EC2 Instance.
+Update the security group to open TCP port 3300 in your AWS Web Console for your EC2 Instance.
 
-You are supposed to know how to do it, if you have forgotten – refer to Project 1 (Step 1 — Installing Apache and Updating the Firewall)
-
-Your Security group shall look like this:
-
-
-**OUTPUT:**
+![image](https://user-images.githubusercontent.com/116161693/209232076-1c99b631-2ce9-4efd-b720-a425539ffe45.png)
 
 Now you can access our Book Register web application from the Internet with a browser using Public IP address or Public DNS name.
 
@@ -496,6 +491,8 @@ You can find it in your AWS web console in EC2 details
 
 **Run curl -s http://169.254.169.254/latest/meta-data/public-ipv4 for Public IP address or curl -s http://169.254.169.254/latest/meta-data/public-hostname for Public DNS name.**
 
-This is how your Web Book Register Application will look like in browser:
+**Congratulations! This is how your Web Book Register Application will look like in browser:**
+
+![image](https://user-images.githubusercontent.com/116161693/209232828-eb2c2e21-9659-43ab-8304-5c9d063c50e1.png)
 
 
