@@ -1,8 +1,9 @@
 # MEAN-STACK
 
-## What is Mean stack?
-**Mean stack is a user-friendly full stack javascript framework which is highly preferable for creating dynamic websites and apps. It is free and open source stack developed to offer developers a fast and highly organized method for building a rapid prototype of mean stack development based web apps.
-The Mean stack is ideal for building all kinds of apps from dynamic single page apps to complex enterprise and social media apps. Mean stack is proposed to deliver a straightforward and initial point for cloud-native full-stack web apps. Mean stack development is a set of open source components that collectively offer a comprehensive framework for creating dynamic web apps.**
+Mean stack is is an open source software stack that provides a framework for creating dynamic websites and applications with ease. It offers developers a fast and highly organized method for building a rapid prototype of mean stack development based web apps.
+The Mean stack is ideal for building all kinds of apps from dynamic single page apps to complex enterprise and social media apps. Mean stack is proposed to deliver a straightforward and initial point for cloud-native full-stack web apps.
+
+**Mean Stack is made up of a front-end app built with Angular that connects to a back-end api built with Node.js + Express + MongoDB.**
 
 **MEAN stands for:** 
 * MongoDB 
