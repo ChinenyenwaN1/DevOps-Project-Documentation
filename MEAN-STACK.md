@@ -489,10 +489,13 @@ Quick reminder how to get your server’s Public IP and public DNS name:
 
 You can find it in your AWS web console in EC2 details
 
+![image](https://user-images.githubusercontent.com/116161693/209306762-04f7bc59-f232-4e9e-80b4-2e2ab1ed2065.png)
+
+
 **Run curl -s http://169.254.169.254/latest/meta-data/public-ipv4 for Public IP address or curl -s http://169.254.169.254/latest/meta-data/public-hostname for Public DNS name.**
 
 **Congratulations! This is how your Web Book Register Application will look like in browser:**
 
-![image](https://user-images.githubusercontent.com/116161693/209232828-eb2c2e21-9659-43ab-8304-5c9d063c50e1.png)
+
 
 
