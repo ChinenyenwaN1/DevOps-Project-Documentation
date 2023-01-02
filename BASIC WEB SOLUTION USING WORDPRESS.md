@@ -277,11 +277,11 @@ df -h
 
 * Step 2 — Prepare the Database Server
 
-1* **Launch a second RedHat EC2 instance that will have a role – ‘DB Server’**
+**Launch a second RedHat EC2 instance that will have a role – ‘DB Server’**
 
-2* **Create and Attach all three volumes one by one to your DB Server EC2 instance**
+**Create and Attach all three volumes one by one to your DB Server EC2 instance**
 
-3* **Open MobaXterm and connect Ec2 instances using public IP Address and begin configuration**
+**Open MobaXterm and connect Ec2 instances using public IP Address and begin configuration**
 
 
 ![image](https://user-images.githubusercontent.com/116161693/210234185-914c46e7-3565-47c0-ba3a-9b5cb772ed32.png)
@@ -415,7 +415,7 @@ sudo mkdir /db
 * **We need to create /home/recovery/logs to store backup of log data**
 
 ```
-$ sudo mkdir -p /home/recovery/logs
+sudo mkdir -p /home/recovery/logs
 ```
 
 * **We need to Mount /db on db-lv logical volume**
@@ -431,7 +431,7 @@ sudo df -h
 
 
 ```
-$ sudo rsync -r /var/log/ /home/recovery/logs/
+sudo rsync -r /var/log/ /home/recovery/logs/
 ```
 ![image](https://user-images.githubusercontent.com/116161693/210235295-98e72cda-8ab2-4681-a094-8eb161bb6723.png)
 
@@ -471,14 +471,14 @@ Test the configuration and reload the daemon
 ## Step 3 — Install WordPress on your Web Server EC2
 
 
-1* **Update the repository**
+**Update the repository**
 
 
 ```
 sudo yum -y update
 ```
 
-2* **Install wget, Apache and it’s dependencies**
+**Install wget, Apache and it’s dependencies**
 
 
 ```
@@ -486,7 +486,7 @@ sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json
 ```
 ![image](https://user-images.githubusercontent.com/116161693/210236564-dc8f9802-cab3-4fca-b34a-a40e5a746bfe.png)
 
-3* **Start Apache**
+**Start Apache**
 
 
 ```
@@ -498,7 +498,7 @@ sudo systemctl status httpd
 ![image](https://user-images.githubusercontent.com/116161693/210236982-4f417951-83c5-4ae8-83b2-389c74b8f9f9.png)
 
 
-4* **To install PHP and it’s depemdencies**
+**To install PHP and it’s depemdencies**
 
 
 ```
@@ -516,14 +516,14 @@ setsebool -P httpd_execmem 1
 ![image](https://user-images.githubusercontent.com/116161693/210237003-706abf56-f0d7-4a4e-9201-ec9f09eda9c3.png)
 
 
-5* **Restart Apache**
+**Restart Apache**
 
 
 ```
 sudo systemctl restart httpd
 ```
 
-6* **Download wordpress and copy wordpress to var/www/html**
+**Download wordpress and copy wordpress to var/www/html**
 
 
 ```
@@ -538,7 +538,7 @@ sudo cp -R wordpress /var/www/html/
   
 ![image](https://user-images.githubusercontent.com/116161693/210237066-3e71f04f-8196-4658-9e72-046f6ca5a345.png)
 
-7* **Configure SELinux Policies**
+**Configure SELinux Policies**
 
 
 ```
@@ -599,7 +599,7 @@ exit
 
 ![image](https://user-images.githubusercontent.com/116161693/210240161-85367fd0-92c8-4905-80d4-2da62a552064.png)
 
-1* **Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client**
+**Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client**
 
 ```
 sudo yum install mysql
@@ -607,11 +607,12 @@ sudo mysql -h <DB-Server-Private-IP-address> -u wordpres -p
 ```
 ![image](https://user-images.githubusercontent.com/116161693/210237862-cb0f4ad9-7491-41fa-a32c-eaf004963a4d.png)
 
-2* **Verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases.**
+**Verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases.**
 
 ![image](https://user-images.githubusercontent.com/116161693/210237822-16b38122-40e5-47cd-86aa-e49099856c6c.png)
 
-3* **Change permissions and configuration so Apache could use WordPress:
+**Change permissions and configuration so Apache could use WordPress:**
+
 Here we need to create a configuration file for wordpress in order to point client requests to the wordpress directory.
 
 ```
@@ -639,7 +640,9 @@ To apply the changes, restart Apache
 ```
 sudo systemctl restart httpd
 ```
+
 Edit the wp-config file
+
 ```
 sudo vi /var/www/html/wordpress/wp-config.php
 ```
@@ -650,15 +653,17 @@ configure SELinux for wordpress
 ```
 sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html/wordpress/.*?"
 ```
-Note: The semanage command is not available on CentOS 7.x.x. and you might need to install it using the following command:
+**Note:** The semanage command is not available on CentOS 7.x.x. and you might need to install it using the following command:
+
 ```
 sudo yum provides /usr/sbin/semanage
 sudo yum install policycoreutils-python-utils
 ```
 
-4* **Enable TCP port 80 in Inbound Rules configuration for your Web Server EC2 (enable from everywhere 0.0.0.0/0 or from your workstation’s IP)**
+**Enable TCP port 80 in Inbound Rules configuration for your Web Server EC2 (enable from everywhere 0.0.0.0/0 or from your workstation’s IP)**
 
-5* **Try to access from your browser the link to your WordPress http://<Web-Server-Public-IP-Address>/wordpress/
+**Try to access from your browser the link to your WordPress http://<Web-Server-Public-IP-Address>/wordpress/**
+ 
   ![image](https://user-images.githubusercontent.com/116161693/210238526-4f2dfcf2-4b8a-4f62-8f67-45bd78e7f29d.png)
 
   ![image](https://user-images.githubusercontent.com/116161693/210238556-dc75dba2-8d2c-4a29-bafe-fa87024f6193.png)
