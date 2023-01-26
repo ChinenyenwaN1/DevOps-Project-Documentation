@@ -108,7 +108,7 @@ sudo systemctl restart nfs-server.service
 ```
 ![image](https://user-images.githubusercontent.com/116161693/214547829-a7363978-b659-4370-a6bf-c4ae19b7b000.png)
 
-using text editor, configure access to NFS for clients within the same subnet (my Subnet CIDR – 172.31.80.0/20 ):
+using text editor, configure access to NFS for clients within the same subnet (my Subnet CIDR – 10.0.2.0/24 ):
 ```
 sudo vi /etc/exports
 ```
@@ -180,7 +180,7 @@ show databases;
 - Mount /var/www/ and target the NFS server’s export for apps (Use the private IP of the NFS server)
 ```
 sudo mkdir /var/www
-sudo mount -t nfs -o rw,nosuid 172.31.85.14:/mnt/apps /var/www
+sudo mount -t nfs -o rw,nosuid 10.0.2.153:/mnt/apps /var/www
 ```
 ![image](https://user-images.githubusercontent.com/116161693/214549309-ef4e409f-8dca-46ad-8f6c-518e0e8568da.png)
 
