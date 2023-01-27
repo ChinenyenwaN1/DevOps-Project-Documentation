@@ -225,7 +225,11 @@ sudo vi /etc/fstab
 Begin by installing git on the webserver: `sudo yum install git -y`
 Initialize Git: `git init`
 
-Then run: `git clone https://github.com/darey-io/tooling.git`
+Then run: 
+
+```
+git clone https://github.com/ChinenyenwaN1/tooling.git
+```
 
 ![image](https://user-images.githubusercontent.com/116161693/214550880-1c116115-2e29-4ab1-b6a4-c657d1e5f936.png)
 
