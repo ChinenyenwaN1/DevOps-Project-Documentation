@@ -79,7 +79,7 @@ sudo mount /dev/webdata-vg/lv-apps /mnt/apps
 sudo mount /dev/webdata-vg/lv-logs /mnt/logs
 sudo mount /dev/webdata-vg/lv-opt /mnt/opt
 ```
-![image](https://user-images.githubusercontent.com/116161693/214547599-714238d6-dff0-4b65-b369-f524de31f778.png)
+![image](https://user-images.githubusercontent.com/116161693/227903876-0c887336-fa00-4dd0-8478-2bf720b56651.png)
 
 Install NFS server, configure it to start on reboot and make sure it is up and running
 ```
@@ -89,7 +89,6 @@ sudo systemctl start nfs-server.service
 sudo systemctl enable nfs-server.service
 sudo systemctl status nfs-server.service
 ```
-![image](https://user-images.githubusercontent.com/116161693/214547649-f2b7f1db-386b-49cb-b4a7-a79a1ddec6b0.png)
 ![image](https://user-images.githubusercontent.com/116161693/214547705-6dd4c27f-9b4d-45e7-b01d-38b81897a5e4.png)
 
 - Export the mounts for webservers’ subnet cidr to connect as clients. For simplicity, install your all three Web Servers inside the same subnet, but in production set up you would probably want to separate each tier inside its own subnet for higher level of security.
@@ -173,8 +172,6 @@ show databases;
 ### Step 3 — Prepare the Web Servers
 
 - Install NFS client on the webserver1: `sudo yum install nfs-utils nfs4-acl-tools -y`
-
-![image](https://user-images.githubusercontent.com/116161693/214549354-7c332cba-9f81-4080-982e-d9320b11c624.png)
 
 - Mount /var/www/ and target the NFS server’s export for apps (Use the private IP of the NFS server)
 ```
