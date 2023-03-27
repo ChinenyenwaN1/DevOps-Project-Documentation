@@ -35,7 +35,6 @@ Install lvm2 package by running the below command to check for available partiti
 ```
 sudo yum install lvm2
 ``` 
-![image](https://user-images.githubusercontent.com/116161693/214546219-8e44d0be-a93b-48ec-9a76-a2aaf162dffc.png)
 
 ```
 sudo lvmdiskscan
