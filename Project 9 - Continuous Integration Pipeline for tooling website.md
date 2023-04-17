@@ -121,7 +121,8 @@ Finished: SUCCESS
 ```
 13. To make sure that the files in /mnt/apps have been updated – connect via SSH/Putty to your NFS server and check README.MD file: `cat /mnt/apps/README.md`
 14. If you see the changes you had previously made in your GitHub – the job works as expected.
-![image](https://user-images.githubusercontent.com/116161693/224297653-2851b518-9a72-4411-bf9f-034f663b5c0f.png)
+
+![image](https://user-images.githubusercontent.com/116161693/232574588-297e529a-02c9-455f-9e5d-a90c523eabcc.png)
 
 **Note** I got a "Permission denied" error which indicated that my build was not successful
 this issue was resolved by changing mode and ownership on the NFS server with the below command:
