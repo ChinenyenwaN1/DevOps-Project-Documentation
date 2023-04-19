@@ -2,7 +2,7 @@
 
 ![image](https://user-images.githubusercontent.com/116161693/233007313-6d3c10c0-7d01-49aa-b801-3e2ca0149358.png)
 
-#### Task
+In this project, we will be implementing the below task:
 - Install and configure Ansible client to act as a Jump Server/Bastion Host
 - Create a simple Ansible playbook to automate servers configuration
 
@@ -10,7 +10,7 @@
 
 An SSH jump server is a regular Linux server, accessible from the Internet, which is used as a gateway to access other Linux machines on a private network using the SSH protocol. Sometimes an SSH jump server is also called a “jump host” or a “bastion host”. The purpose of an SSH jump server is to be the only gateway for access to your infrastructure reducing the size of any potential attack surface.
 
-#### Step 1 - INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE
+#### INSTALL AND CONFIGURE ANSIBLE ON EC2 INSTANCE
 This is a continuation of [project 9](https://github.com/ChinenyenwaN1/DevOps-Project-Documentation/blob/main/Project%209%20-%20Continuous%20Integration%20Pipeline%20for%20tooling%20website.md), update Name tag on your Jenkins EC2 Instance to **Jenkins-Ansible**. This server will be used to run playbooks.
 In your GitHub account create a new repository and name it **ansible-config-mgt**.
 In your **Jenkin-Ansible** server, instal **Ansible**
@@ -31,24 +31,24 @@ Configure Jenkins build job to save your repository content every time you chang
   ![image](https://user-images.githubusercontent.com/116161693/233049703-e779bf0f-5410-4299-9ee7-950d3364907c.png)
   ![image](https://user-images.githubusercontent.com/116161693/233055181-baaf9531-d9dc-4835-aaae-58997fb73c31.png)
     
-#### Step 2 – Prepare your development environment using Visual Studio Code
+##### PREPARE YOUR DEVELOPMENT ENVIRONMENT USING VISUAL STUDIO CODE
 - Install Visual Studio Code (VSC)- an Integrated development environment (IDE) or Source-code Editor. You can get it [here](https://code.visualstudio.com/download)
 - After you have successfully installed VSC, configure it to connect to your newly created GitHub repository.
 - Clone down your ansible-config-mgt repo to your Jenkins-Ansible instance: `git clone <ansible-config-mgt repo link>`
 
-### Create a simple Ansible playbook to automate servers configuration
+#### CREATE A SIMPLE ANSIBLE PLAYBOOK TO AUTOMATE SERVERS CONFIGURATION
 
-#### Step 3 - Begin Ansible development
+#### ANSIBLE DEVELOPMENT
 - In your **ansible-config-mgt** GitHub repository, create a new branch that will be used for development of a new feature.
 - Checkout the newly created feature branch to your local machine and start building your code and directory structure
-- Create a directory and name it **playbooks** – it will be used to store all your playbook files.
-- Create a directory and name it **inventory** – it will be used to keep your hosts organised.
-- Inside the playbooks folder, create your first playbook, and name it **common.yml**
-- Inside the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) **dev**, **staging**, **uat**, and **prod** respectively.
+- Create a playbooks directory for storing playbooks
+- Create an inventory directory for storing inventory files
+- In the playbooks folder, create a common.yml file
+- In the inventory folder, create dev.yml, prod.yml, staging.yml and uat.yml for dev, prod, staging and uat environments respectively.
 
 ![image](https://user-images.githubusercontent.com/116161693/233051411-8514d728-7654-4170-90eb-60e42cd0295e.png)
 
-#### Step 4 – Set up an Ansible Inventory
+#### Setting up Ansible Inventory
 - An Ansible inventory file defines the hosts and groups of hosts upon which commands, modules, and tasks in a playbook operate. Since the intention is to execute Linux commands on remote hosts, and ensure that it is the intended configuration on a particular server that occurs. It is important to have a way to organize our hosts in such an Inventory.
 
 - Save below inventory structure in the inventory/dev file to start configuring your development servers. Ensure to replace the IP addresses according to your own setup.
@@ -80,7 +80,7 @@ ssh-add <path-to-private-key>
 ```
 ![image](https://user-images.githubusercontent.com/116161693/233051740-5e066ff5-d1de-4ea4-ac35-f69554366cc1.png)
 
-#### Step 5 – Create a Common Playbook
+#### Creating a Common Playbook
 Now we give Ansible the instructions on what you needs to be performed on all servers listed in **inventory/dev**. In **common.yml** playbook you will write configuration for repeatable, re-usable, and multi-machine tasks that is common to systems within the infrastructure.
 - Update your playbooks/common.yml file with following code:
 ```
@@ -111,9 +111,9 @@ Now we give Ansible the instructions on what you needs to be performed on all se
 
 2. This playbook is divided into two parts, each of them is intended to perform the same task: install **wireshark utility** (or make sure it is updated to the latest version) on your RHEL 8 and Ubuntu servers. It uses **root** user to perform this task and respective package manager: **yum** for RHEL 8 and **apt** for Ubuntu.
 
-#### Step 6 – Update GIT with the latest code
-- Now all of your directories and files live on your machine and you need to push changes made locally to GitHub.
-- Commit your code into GitHub: use git commands to **add**, **commit** and **push** your branch to GitHub.
+**Updating GIT with the latest code**
+- Our directories and files is stored in our machine and we need to push changes made locally to GitHub.
+
 ```
 git status
 git add <selected files>
@@ -125,9 +125,10 @@ git commit -m "commit message"
 ![image](https://user-images.githubusercontent.com/116161693/233051903-94332f60-663d-4d99-b32a-2031eea856b6.png)
 
 #### Step 7 – Run Ansible test
-- Now, it is time to execute ansible-playbook command and verify if your playbook actually works: `cd ansible-config-mgt`
-- Run ansible-playbook command: `ansible-playbook -i inventory/dev.yml playbooks/common.yml`
+ansible-playbook -i/var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/inventory/dev.yml /var/lib/jenkins/jobs/ansible/builds/<build-number>/archive/playbooks/common.yml
+
 ![image](https://user-images.githubusercontent.com/116161693/233052358-70deed5e-4f89-4571-bc10-6aaf6d8a143e.png)
 
 - If your command ran successfully, go to each of the servers and check if wireshark has been installed by running `which wireshark` or `wireshark --version`
+  
 ![image](https://user-images.githubusercontent.com/116161693/233052432-d142a979-6836-4a20-8992-7a22d7a8f89d.png)
