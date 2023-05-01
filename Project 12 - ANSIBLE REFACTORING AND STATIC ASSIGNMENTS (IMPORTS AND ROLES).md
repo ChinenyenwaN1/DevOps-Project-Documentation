@@ -13,10 +13,9 @@ reduce complexity, add proper comments without affecting the logic.
 
 ### Step 1 – Jenkins job enhancement
 Every new change in the codes creates a separate directory which is not very convenient when we want to run some commands from one place. 
-Besides, it consumes space on Jenkins server with each subsequent change. I will enhance it by introducing a new Jenkins project/job – **Copy Artifact** plugin
-will be required for this. 
+Besides, it consumes space on Jenkins server with each subsequent change. let us enhance it by introducing a new Jenkins project/job – we will require **Copy Artifact** plugin.
 
-1. Inside the  **Jenkins-Ansible** server and create a new directory called **ansible-config-artifact** – where we will store all artifacts after each build.
+1. In our **Jenkins-Ansible** server create a new directory called **ansible-config-artifact** – where we will store all artifacts after each build.
 `sudo mkdir /home/ubuntu/ansible-config-artifact`
 2. Change permissions to this directory, so Jenkins could save files there – `chmod -R 0777 /home/ubuntu/ansible-config-artifact`
 3. Go to Jenkins web console -> **Manage Jenkins** -> **Manage Plugins** -> on **Available** tab search for **Copy Artifact** and install this plugin without 
@@ -40,6 +39,8 @@ with every commit to your master branch.
 ![image](https://user-images.githubusercontent.com/116161693/234305225-d65bb599-86a5-47a1-a357-e7f4e4d3219f.png)
 
 ### Step 2 – Refactor Ansible code by importing other playbooks into site.yml
+Before starting to refactor the codes, ensure that you have pulled down the latest code from master (main) branch, and created a new branch, name it refactor.
+
 In Project 11 I wrote all tasks in a single playbook **common.yml**, a simple set of instructions for only 2 types of OS, but imagine there are many more tasks 
 and I need to apply this playbook to other servers with different requirements. In this case, I will have to read through the whole playbook to check if all tasks 
 written there are applicable and is there anything that you need to add for certain server/OS families. Very fast it will become a tedious exercise and my playbook 
@@ -138,7 +139,7 @@ ansible-playbook -i inventory/dev.yml playbooks/site.yaml
 
 7. Time to add some logic to the webserver role. Go into **tasks** directory, and within the **main.yml** file, write configuration tasks to do the following:
   - Install and configure Apache (httpd service)
-  - Clone Tooling website from GitHub https://github.com/<your-name>/tooling.git.
+  - Clone Tooling website from GitHub https://github.com/ChinenyenwaN1/tooling.git.
   - Ensure the tooling website code is deployed to /var/www/html on each of 2 UAT Web servers.
   - Make sure httpd service is started
 8. Your **main.yml** may consist of following tasks:
