@@ -283,7 +283,7 @@ pipeline {
 
     stage('Checkout SCM') {
       steps {
-            git branch: 'main', url: 'https://github.com/cynthia-okoduwa/php-todo.git'
+            git branch: 'main', url: 'https://github.com/ChinenyenwaN1/php-todo'
       }
     }
 
